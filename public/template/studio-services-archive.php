@@ -23,11 +23,10 @@ $description = get_the_archive_description();
                     <?php the_post_thumbnail( 'post-thumbnail', ['class' => 'card-img-top', 'title' => 'Feature image'] ); ?>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-3 studio-service-price">
-                                <span class="price">Rp 100.000</span><br/>
-                                <span class="hour">per hour</span>
+                            <div class="col-4 studio-service-price">
+                                <span class="price">Rp <?php echo number_format( get_field("price"), 0, ",", "." ); ?></span>
                             </div>
-                            <div class="col studio-service-title">
+                            <div class="col-8 studio-service-title">
                                 <h3><?php the_title(); ?></h3>
                             </div>
                         </div>

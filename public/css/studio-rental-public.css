@@ -9,12 +9,9 @@
 
 .studio-service-card .card-body span.price {
      color: #666;
-     font-size: smaller;
+     font-size: 18px;
      font-weight: 600;
-}
- 
-.studio-service-card .card-body span.hour {
-     font-size: small;
+     line-height: 35px;
 }
 
 .studio-service-card a {
@@ -29,14 +26,17 @@
     letter-spacing: -1px;
 }
 
-.studio-service-sidebar {
-    padding-left: 4em !important;
-    border-left: 1px solid #eee;
-}
-
 .studio-service-sidebar h2.service-price {
     font-size: 28px;
     line-height: 40px;
     font-weight: 500;
     color: #4a4a4a;
+}
+
+@media (min-width: 1200px) {
+
+    .studio-service-sidebar {
+        padding-left: 4em !important;
+        border-left: 1px solid #eee;
+    }
 }

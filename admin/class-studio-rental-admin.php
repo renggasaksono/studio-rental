@@ -149,4 +149,52 @@ class Studio_Rental_Admin {
 		register_post_type( 'mr_studio_services', $args );
 	}
 
+	/**
+	 * Register studio addons custom post type
+	 */
+	public function register_studio_addons() {
+
+		// Set UI labels for Custom Post Type
+		$labels = array(
+				'name'                => _x( 'Studio Addons', 'Post Type General Name', 'studio-rental'),
+				'singular_name'       => _x( 'Studio Addon', 'Post Type Singular Name', 'studio-rental' ),
+				'menu_name'           => __( 'Studio Addons', 'studio-rental' ),
+				'parent_item_colon'   => __( 'Parent Studio Addon', 'studio-rental' ),
+				'all_items'           => __( 'All Studio Addons', 'studio-rental' ),
+				'view_item'           => __( 'View Studio Addons', 'studio-rental' ),
+				'add_new_item'        => __( 'Add New Studio Addon', 'studio-rental' ),
+				'add_new'             => __( 'Add New', 'studio-rental' ),
+				'edit_item'           => __( 'Edit Studio Addon', 'studio-rental' ),
+				'update_item'         => __( 'Update Studio Addon', 'studio-rental' ),
+				'search_items'        => __( 'Search Studio Addon', 'studio-rental' ),
+				'not_found'           => __( 'Not Found', 'studio-rental' ),
+				'not_found_in_trash'  => __( 'Not found in Trash', 'studio-rental' ),
+		);
+
+		// Set other options for Custom Post Type
+		$args = array(
+				'label'               => __( 'Studio Addons', 'studio-rental' ),
+				'description'         => __( 'Studio Addons', 'studio-rental' ),
+				'labels'              => $labels,
+				'supports'            => array( 'title', 'custom-fields' ),
+				'hierarchical'        => false,
+				'public'              => true,
+				'show_ui'             => true,
+				'show_in_menu'        => true,
+				'show_in_nav_menus'   => true,
+				'show_in_admin_bar'   => true,
+				'query_var'			  => true,
+				'menu_position'       => 6,
+				'can_export'          => true,
+				'has_archive'         => false,
+				'exclude_from_search' => true,
+				'publicly_queryable'  => true,
+				'capability_type'     => 'post',
+				'show_in_rest' 		  => false,
+		);
+
+		// Registering your Custom Post Type
+		register_post_type( 'mr_studio_addons', $args );
+	}
+
 }
