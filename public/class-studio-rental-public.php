@@ -74,6 +74,7 @@ class Studio_Rental_Public {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/studio-rental-public.css', array(), $this->version, 'all' );
+		wp_enqueue_style( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', array(), '5.1.3', 'all' );
 
 	}
 
@@ -97,7 +98,36 @@ class Studio_Rental_Public {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/studio-rental-public.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( 'bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js', array( 'jquery' ), '5.3.1', false );
 
+	}
+
+	/**
+	 * Filter archive view to use custom template included in the plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	public function load_studio_services_archive_template( $archive_template ) {
+		global $post;
+   
+		if ( is_post_type_archive ( 'mr_studio_services' ) ) {
+			$archive_template = plugin_dir_path( dirname( __FILE__ ) ) . 'public/template/studio-services-archive.php';
+		}
+		return $archive_template;
+   }
+
+   /**
+	 * Filter single view to use custom template included in the plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	public function load_studio_services_single_template( $template ) {
+
+		if ( is_singular( 'mr_studio_services' ) ) {
+			$template = plugin_dir_path( dirname( __FILE__ ) ) . 'public/template/studio-services-single.php';
+		}
+		
+		return $template;
 	}
 
 }

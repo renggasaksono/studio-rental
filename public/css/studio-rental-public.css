@@ -2,3 +2,41 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+.studio-service-card {
+    border: none !important;
+}
+
+.studio-service-card .card-body span.price {
+     color: #666;
+     font-size: smaller;
+     font-weight: 600;
+}
+ 
+.studio-service-card .card-body span.hour {
+     font-size: small;
+}
+
+.studio-service-card a {
+    text-decoration: none;
+}
+
+.studio-service-main-content h1.entry-title {
+    font-size: 48px;
+    font-weight: bold;
+    color: #4a4a4a;
+    line-height: 56px;
+    letter-spacing: -1px;
+}
+
+.studio-service-sidebar {
+    padding-left: 4em !important;
+    border-left: 1px solid #eee;
+}
+
+.studio-service-sidebar h2.service-price {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 500;
+    color: #4a4a4a;
+}

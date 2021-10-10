@@ -33,8 +33,6 @@ class Studio_Rental_Uninstaller {
 		global $wpdb;
 
 		// Drop db tables
-		$wpdb->query( "DROP TABLE {$wpdb->prefix}mr_studio_services" );
-		$wpdb->query( "DROP TABLE {$wpdb->prefix}mr_studio_addons" );
 		$wpdb->query( "DROP TABLE {$wpdb->prefix}mr_studio_reservations" );
 	}
 

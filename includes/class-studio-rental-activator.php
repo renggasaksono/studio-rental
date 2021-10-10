@@ -31,54 +31,12 @@ class Studio_Rental_Activator {
 
 		// Create db tables
 		$activator = new self;
-	 	$activator->mr_create_studio_services_table();
-		$activator->mr_create_studio_addons_table();
 		$activator->mr_create_studio_reservations_table();
 	}
-
-	function mr_create_studio_services_table() {
-		global $wpdb;
-
-		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-
-		$charset    = $wpdb->get_charset_collate();
-		$table_name = $wpdb->prefix . 'mr_studio_services';
-		$query      = "
-			CREATE TABLE IF NOT EXISTS {$table_name} (
-				ID         			BIGINT(20)   UNSIGNED NOT NULL AUTO_INCREMENT,
-				title    			VARCHAR(255) NOT NULL,
-				description    		TEXT NULL,
-				active    			BOOLEAN NOT NULL,
-				attachment_ID		BIGINT NULL,
-				updated_at 			TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
-				primary key (ID)
-			) {$charset};
-		";
-
-		dbDelta( $query );
-	}
-
-	function mr_create_studio_addons_table() {
-		global $wpdb;
-
-		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-
-		$charset    = $wpdb->get_charset_collate();
-		$table_name = $wpdb->prefix . 'mr_studio_addons';
-		$query      = "
-			CREATE TABLE IF NOT EXISTS {$table_name} (
-				ID         			BIGINT(20)   UNSIGNED NOT NULL AUTO_INCREMENT,
-				studio_service_ID	BIGINT NOT NULL,
-				title				VARCHAR(255),
-				price				INTEGER NOT NULL,
-				updated_at 			TIMESTAMP NOT NULL DEFAULT NOW() ON UPDATE NOW(),
-				primary key (ID)
-			) {$charset};
-		";
-
-		dbDelta( $query );
-	}
-
+	
+	/**
+	 * Create reservations table to store bookings
+	 */
 	function mr_create_studio_reservations_table() {
 		global $wpdb;
 
@@ -104,5 +62,4 @@ class Studio_Rental_Activator {
 		
 		dbDelta( $query );
 	}
-
 }

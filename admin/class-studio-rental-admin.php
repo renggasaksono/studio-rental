@@ -100,4 +100,53 @@ class Studio_Rental_Admin {
 
 	}
 
+	/**
+	 * Register studio service custom post type
+	 */
+	public function register_studio_services() {
+
+		// Set UI labels for Custom Post Type
+		$labels = array(
+				'name'                => _x( 'Studio Services', 'Post Type General Name', 'studio-rental'),
+				'singular_name'       => _x( 'Studio Service', 'Post Type Singular Name', 'studio-rental' ),
+				'menu_name'           => __( 'Studio Services', 'studio-rental' ),
+				'parent_item_colon'   => __( 'Parent Studio Service', 'studio-rental' ),
+				'all_items'           => __( 'All Studio Services', 'studio-rental' ),
+				'view_item'           => __( 'View Studio Service', 'studio-rental' ),
+				'add_new_item'        => __( 'Add New Studio Service', 'studio-rental' ),
+				'add_new'             => __( 'Add New', 'studio-rental' ),
+				'edit_item'           => __( 'Edit Studio Service', 'studio-rental' ),
+				'update_item'         => __( 'Update Studio Service', 'studio-rental' ),
+				'search_items'        => __( 'Search Studio Service', 'studio-rental' ),
+				'not_found'           => __( 'Not Found', 'studio-rental' ),
+				'not_found_in_trash'  => __( 'Not found in Trash', 'studio-rental' ),
+		);
+
+		// Set other options for Custom Post Type
+		$args = array(
+				'label'               => __( 'Studio Services', 'studio-rental' ),
+				'description'         => __( 'Studio Services', 'studio-rental' ),
+				'labels'              => $labels,
+				'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields' ),
+				'rewrite'             => array( 'slug' => 'studio-services' ),
+				'hierarchical'        => false,
+				'public'              => true,
+				'show_ui'             => true,
+				'show_in_menu'        => true,
+				'show_in_nav_menus'   => true,
+				'show_in_admin_bar'   => true,
+				'query_var'			  => true,
+				'menu_position'       => 5,
+				'can_export'          => true,
+				'has_archive'         => true,
+				'exclude_from_search' => false,
+				'publicly_queryable'  => true,
+				'capability_type'     => 'post',
+				'show_in_rest' 		  => true,
+		);
+
+		// Registering your Custom Post Type
+		register_post_type( 'mr_studio_services', $args );
+	}
+
 }
